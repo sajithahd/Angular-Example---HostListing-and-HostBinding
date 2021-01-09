@@ -1,4 +1,10 @@
-import { Directive, ElementRef, HostListener, Renderer2 } from "@angular/core";
+import {
+  Directive,
+  ElementRef,
+  HostBinding,
+  HostListener,
+  Renderer2
+} from "@angular/core";
 
 @Directive({
   selector: "[appHostManipulator]"
@@ -8,14 +14,23 @@ export class HostManipulatorDirective {
 
   @HostListener("click") onclick() {
     this.renderer.addClass(this.el.nativeElement, "clicked");
+    this.renderer.removeClass(this.el.nativeElement, "leave");
+    this.renderer.removeClass(this.el.nativeElement, "over");
   }
 
-  @HostListener("mouveover") onMouseOver() {
-    this.renderer.addClass(this.el.nativeElement, "over");
+  @HostListener("mouseover") onMouseOver() {
+    // Using renderer
+    //this.renderer.addClass(this.el.nativeElement, "over");
+
+    // using host binding
+    this.classOver = "over";
+    this.renderer.removeClass(this.el.nativeElement, "leave");
   }
 
   @HostListener("mouseleave") onMouseLeave() {
     this.renderer.addClass(this.el.nativeElement, "leave");
     this.renderer.removeClass(this.el.nativeElement, "over");
   }
+
+  @HostBinding("class.over") classOver: string;
 }
