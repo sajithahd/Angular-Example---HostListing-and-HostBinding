@@ -16,5 +16,6 @@ export class HostManipulatorDirective {
 
   @HostListener("mouseleave") onMouseLeave() {
     this.renderer.addClass(this.el.nativeElement, "leave");
+    this.renderer.removeClass(this.el.nativeElement, "over");
   }
 }

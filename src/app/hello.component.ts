@@ -14,17 +14,19 @@ import { Component, Input } from "@angular/core";
       h1 {
         font-family: Lato;
       }
+
       .clicked {
         background: red;
       }
       .over {
         background: blue;
       }
-      .leave{
+      .leave {
         background: green;
       }
     `
-  ]
+  ],
+  host: { class: "demo-area" }
 })
 export class HelloComponent {
   @Input() name: string;
