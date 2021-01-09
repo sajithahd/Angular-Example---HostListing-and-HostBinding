@@ -14,6 +14,15 @@ import { Component, Input } from "@angular/core";
       h1 {
         font-family: Lato;
       }
+      .clicked {
+        background: red;
+      }
+      .over {
+        background: blue;
+      }
+      .leave{
+        background: green;
+      }
     `
   ]
 })
