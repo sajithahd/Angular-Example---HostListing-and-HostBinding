@@ -32,5 +32,6 @@ export class HostManipulatorDirective {
     this.renderer.removeClass(this.el.nativeElement, "over");
   }
 
+  // This happens because @HostBinding only supports binding of values, while host metadata supports both binding and static values.
   @HostBinding("class.over") classOver: string;
 }
