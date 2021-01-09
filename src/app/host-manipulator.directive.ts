@@ -20,10 +20,14 @@ export class HostManipulatorDirective {
 
   @HostListener("mouseover") onMouseOver() {
     // Using renderer
-    //this.renderer.addClass(this.el.nativeElement, "over");
+    // this.renderer.addClass(this.el.nativeElement, "over");
 
     // using host binding
-    this.classOver = "over";
+    setTimeout(() => {
+      //this.classOver = "over";
+       this.renderer.addClass(this.el.nativeElement, "over");
+    }, 2000);
+    
     this.renderer.removeClass(this.el.nativeElement, "leave");
   }
 
